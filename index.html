@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 | 이력서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        header {
+            position: relative;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            overflow: hidden;
+            background: 
+                linear-gradient(transparent 50%, #066), 
+                linear-gradient(to top right, transparent 50%, #9cc 0) calc(50% - 20vmin) calc(50% + 7vmin) / 21vmin 100%,
+                conic-gradient(at 18.5vmin 0, transparent 43%, #9cc 0) 50% 50% / 50% 100%,
+                #c1e7f0;
+            background-repeat: no-repeat;
+        }
+
+        header::before {
+            content: "";
+            width: 40vmin;
+            height: 66vmin;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            clip-path: polygon(0% 40%, 18% 18%, 28% 23%, 50% 0, 70% 15%, 75% 21%, 85% 22%, 98% 30%, 100% 40%, 80% 60%, 80% 80%, 55% 100%, 30% 83%, 20% 65%, 4% 50%);
+            background: 
+                radial-gradient(farthest-side at 53% 55%, rgba(255, 255, 255, 0.67), rgba(255, 255, 255, 0) 70%),
+                linear-gradient(transparent 50%, rgba(0, 0, 0, 0.33)),
+                conic-gradient(from -25deg at 25% 27%, #97d7e0 50deg, transparent 0),
+                conic-gradient(from 25deg at 59% 27%, #97d7e0 47deg, transparent 0),
+                conic-gradient(from -15deg at 54% 60%, #97d7e0 140deg, transparent 0) 0 0 / 100% 17%,
+                conic-gradient(from 30deg at 39% 26%, #c8e9ee 30deg, transparent 0),
+                conic-gradient(from 62deg at 53% 55%, #37949c 45deg, #51b0bb 0 85deg, transparent 0),
+                conic-gradient(from 15deg at 69% 57%, #97d7e0 47deg, transparent 0),
+                conic-gradient(from 70deg at 53% 89%, #37949c 105deg, #97d7e0 0 222deg, transparent 0),
+                conic-gradient(from 122deg at 53% 55%, #87c7cc 58deg, #a1e5e4 0 173deg, transparent 0),
+                #fff;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header::after {
+            content: "";
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background:
+                radial-gradient(farthest-side at 50% -50%, transparent calc(100% - 1px), rgba(37, 174, 180, 0.53)) 50% 0 / 5vmin 2vmin repeat-x,
+                linear-gradient(transparent 2vmin, rgba(37, 174, 180, 0.53) 0, rgba(37, 174, 180, 0.53));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #37949c;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #37949c;
+        }
+
+        .intro-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background: #37949c;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #37949c;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .item-company {
+            font-size: 1.1em;
+            color: #37949c;
+            margin-bottom: 5px;
+        }
+
+        .item-period {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .item-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #37949c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .contact-info a {
+            color: #37949c;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-image">프로필 이미지</div>
+            <h1>홍길동</h1>
+            <p class="subtitle">풀스택 개발자</p>
+        </header>
+
+        <section id="intro">
+            <h2>소개</h2>
+            <div class="intro-content">
+                <p>안녕하세요! 열정적인 개발자 홍길동입니다.</p>
+                <p>사용자 중심의 웹 애플리케이션을 개발하며, 새로운 기술을 학습하고 적용하는 것을 즐깁니다. 문제 해결 능력과 팀워크를 바탕으로 프로젝트의 성공적인 완수를 목표로 합니다.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>기술</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">아이콘</div>
+                    <div class="skill-name">Frontend</div>
+                    <p>HTML, CSS, JavaScript<br>React, Vue.js</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">아이콘</div>
+                    <div class="skill-name">Backend</div>
+                    <p>Node.js, Python<br>Django, Express</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">아이콘</div>
+                    <div class="skill-name">Database</div>
+                    <p>MySQL, MongoDB<br>PostgreSQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">아이콘</div>
+                    <div class="skill-name">Tools</div>
+                    <p>Git, Docker<br>AWS, CI/CD</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>경력</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-company">테크 스타트업</div>
+                        <div class="item-title">시니어 개발자</div>
+                    </div>
+                    <div class="item-period">2022.03 - 현재</div>
+                </div>
+                <div class="item-description">
+                    <p>• 웹 애플리케이션 설계 및 개발 주도</p>
+                    <p>• React 기반 프론트엔드 아키텍처 구축</p>
+                    <p>• 팀 내 코드 리뷰 및 기술 멘토링</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-company">IT 솔루션 회사</div>
+                        <div class="item-title">주니어 개발자</div>
+                    </div>
+                    <div class="item-period">2020.01 - 2022.02</div>
+                </div>
+                <div class="item-description">
+                    <p>• 고객사 웹사이트 개발 및 유지보수</p>
+                    <p>• RESTful API 설계 및 구현</p>
+                    <p>• 데이터베이스 최적화 작업</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <div class="project-item">
+                <div class="project-image">프로젝트 이미지</div>
+                <div class="item-header">
+                    <div class="item-title">이커머스 플랫폼</div>
+                    <div class="item-period">2023.06 - 2023.12</div>
+                </div>
+                <div class="item-description">
+                    <p>온라인 쇼핑몰 풀스택 개발 프로젝트입니다.</p>
+                    <p><strong>기술 스택:</strong> React, Node.js, MongoDB, AWS</p>
+                    <p><strong>주요 기능:</strong> 상품 관리, 결제 시스템, 관리자 대시보드</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-image">프로젝트 이미지</div>
+                <div class="item-header">
+                    <div class="item-title">소셜 네트워킹 앱</div>
+                    <div class="item-period">2023.01 - 2023.05</div>
+                </div>
+                <div class="item-description">
+                    <p>실시간 채팅 및 소셜 기능을 갖춘 웹 애플리케이션입니다.</p>
+                    <p><strong>기술 스택:</strong> Vue.js, Python Django, PostgreSQL</p>
+                    <p><strong>주요 기능:</strong> 실시간 메시징, 뉴스피드, 친구 추천 알고리즘</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>연락처</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <strong>이메일</strong><br>
+                        <a href="mailto:example@email.com">example@email.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-info">
+                        <strong>전화</strong><br>
+                        010-1234-5678
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <div class="contact-info">
+                        <strong>GitHub</strong><br>
+                        <a href="https://github.com/username" target="_blank">github.com/username</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-info">
+                        <strong>LinkedIn</strong><br>
+                        <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
