@@ -7,7 +7,6 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -157,15 +156,9 @@
             justify-content: flex-end;
         }
 
-        .foot-contact, .social-icons ul, .copy-rights {
+        .foot-contact, .copy-rights {
             display: flex;
             justify-content: flex-end;
-        }
-
-        .social-icons ul li {
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: row;
         }
 
         .foot-contact ul {
@@ -181,16 +174,6 @@
 
         .foot-contact {
             margin: 5px 0px;
-        }
-
-        .social-icons ul li a {
-            padding: 5px 8px;
-            font-size: 16px;
-        }
-
-        .social-icons ul li a:hover {
-            color: #000;
-            transform: scale(1.2) translateY(-5px);
         }
 
         .section1 {
@@ -281,26 +264,6 @@
             margin-right: 10px;
         }
 
-        .social-icons-head ul {
-            display: flex;
-        }
-
-        .social-icons-head ul li a {
-            padding: 5px 10px;
-            font-size: 22px;
-            transition: all .3s;
-            display: flex;
-        }
-
-        .social-icons-head ul li:nth-child(1) a {
-            padding-left: 0;
-        }
-
-        .social-icons-head ul li a:hover {
-            color: #000;
-            transform: scale(1.2) translateY(-5px);
-        }
-
         /* 기술 섹션 */
         .skills-grid {
             display: grid;
@@ -376,90 +339,6 @@
             border-radius: 10px;
         }
 
-        /* Contact Form Styles */
-        .contact-form {
-            max-width: 600px;
-            margin: 30px 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #222;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: #000;
-            color: #fff;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-message {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -491,10 +370,6 @@
 
         .mobile-menu-toggle:hover {
             background: #333;
-        }
-
-        .mobile-menu-toggle:active {
-            background: #555;
         }
 
         /* 태블릿 */
@@ -540,7 +415,7 @@
                 transition: left 0.3s ease;
                 max-height: 100vh;
                 overflow-y: auto;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                box-shadow: 2px 0 10px rgba(0,0,0,0.3);
             }
 
             .left-content.active {
@@ -598,10 +473,6 @@
 
             .pr-list ul li {
                 font-size: 13px;
-            }
-
-            .social-icons-head ul {
-                justify-content: center;
             }
 
             .section1 {
@@ -734,7 +605,8 @@
                         <li><a href="#Certifications">자격증</a></li>
                         <li><a href="#Contact">연락처</a></li>
                     </ul>
-                    </div>
+                </div>
+                <div class="left-footer">
                     <div class="foot-contact">
                         <ul>
                             <li>ide06025@naver.com</li>
@@ -743,6 +615,8 @@
                     </div>
                     <div class="copy-rights">Copyright &copy;2025 All rights reserved</div>
                 </div>
+            </div>
+
             <div class="main-content">
                 <!-- Home Section -->
                 <div class="section1" id="Home">
@@ -767,11 +641,6 @@
                                     <li><i class="fa fa-phone" aria-hidden="true"></i> 010-9757-3757</li>
                                     <li><i class="fa fa-envelope" aria-hidden="true"></i> ide06025@naver.com</li>
                                     <li><i class="fa fa-map-marker" aria-hidden="true"></i> 인천, 대한민국</li>
-                                </ul>
-                            </div>
-                            <div class="social-icons-head">
-                                <ul>
-                                
                                 </ul>
                             </div>
                         </div>
@@ -807,7 +676,7 @@
                         </div>
                         <div class="skill-card">
                             <div class="skill-name">디자인</div>
-                            <p>Photoshop, Illustrator, IndighinL</p>
+                            <p>Photoshop, Illustrator, InDesign</p>
                         </div>
                         <div class="skill-card">
                             <div class="skill-name">영상</div>
@@ -828,7 +697,7 @@
                                 <div class="item-company">대학교 공학교육혁신센터</div>
                                 <div class="item-title">계약직(전문연구원)</div>
                             </div>
-                            <div class="item-period">2025.07.01 - 현재 (재직중, 총 6개월)</div>
+                            <div class="item-period">2024.07.01 - 현재 (재직중, 총 6개월)</div>
                         </div>
                         <div class="item-description">
                             <p>• 공학교육인증 운영 학과 학사 지원 및 10개 인증 프로그램 운영 관련 각종 내규 관리</p>
@@ -921,29 +790,6 @@
                         <div class="pg-title">연락처</div>
                     </div>
                     
-                    <div class="contact-form">
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <label for="from_name">이름 *</label>
-                                <input type="text" id="from_name" name="from_name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="reply_to">이메일 *</label>
-                                <input type="email" id="reply_to" name="reply_to" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">제목</label>
-                                <input type="text" id="subject" name="subject">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">메시지 *</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn" id="submit-btn">메시지 보내기</button>
-                            <div class="form-message" id="form-message"></div>
-                        </form>
-                    </div>
-
                     <div class="contact-grid">
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fa fa-envelope"></i></div>
@@ -971,20 +817,40 @@
         const leftSidebar = document.getElementById('left-sidebar');
         const mainContent = document.querySelector('.main-content');
 
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             leftSidebar.classList.toggle('active');
+            console.log('Menu toggled:', leftSidebar.classList.contains('active'));
         });
 
         // 메뉴 항목 클릭 시 모바일에서 사이드바 닫기
         const navLinks = document.querySelectorAll('.nav ul li a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
-                    leftSidebar.classList.remove('active');
+                    setTimeout(() => {
+                        leftSidebar.classList.remove('active');
+                    }, 300);
                 }
             });
         });
 
         // 메인 콘텐츠 클릭 시 사이드바 닫기
         mainContent.addEventListener('click', function() {
-            if (window.innerWidth <=
+            if (window.innerWidth <= 768 && leftSidebar.classList.contains('active')) {
+                leftSidebar.classList.remove('active');
+            }
+        });
+
+        // 사이드바 외부 클릭 시 닫기
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                if (!leftSidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    leftSidebar.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
